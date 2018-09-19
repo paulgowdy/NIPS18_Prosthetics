@@ -11,7 +11,7 @@ import tensorflow as tf
 import canton as ct
 from canton import *
 
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 
 from process_dict_obs import *
 from reward_shaping import *
@@ -71,7 +71,7 @@ class ddpg_agent(object):
 		import threading as th
 		self.lock = th.Lock()
 
-		self.reward_plotter = plt.figure()
+		#self.reward_plotter = plt.figure()
 		self.reward_collector = []
 		self.learn_reward_collector = []
 
@@ -347,7 +347,7 @@ class ddpg_agent(object):
 		# PLOT
 		self.reward_collector.append(total_reward)
 		self.learn_reward_collector.append(ep_learning_reward)
-
+		'''
 		if len(self.reward_collector) % 10 == 0:
 
 			self.reward_plotter.clf()
@@ -355,7 +355,7 @@ class ddpg_agent(object):
 			plt.plot(self.learn_reward_collector, c = 'r')
 			plt.grid(linestyle = '-.')
 			plt.pause(0.001)
-
+		'''
 
 		return total_reward
 
